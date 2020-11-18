@@ -1,6 +1,3 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<math.h>
 #include "tab.h"
 
 #define TAB2SIZE 100

@@ -1,6 +1,6 @@
 #include "tab.h"
 
-#define TAB2SIZE 100
+
 
 
 

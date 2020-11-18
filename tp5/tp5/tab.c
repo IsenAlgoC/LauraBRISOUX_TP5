@@ -1,6 +1,6 @@
 #include "tab.h"
 
-#define TAILLEAJOUT 50
+
 
 
 int initTab(int* tab, int size) {

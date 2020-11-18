@@ -31,28 +31,19 @@ int afficheTab(int* tab, int size, int nbElts) {
 }
 
 int* ajoutElementDansTableau(int* tab, int* size, int* nbElts, int element) {
-	/*if (tab == NULL) {
-		return -1;
-	}
-	if(nbElts<size){
-		tab[*nbElts] = element;
-		nbElts++;
-	}
-	else {
-		tab = (int*)realloc(tab, (*size + 1) * sizeof(int));
-	}
-	return 0;*/
-	if (tab == NULL || size < 0 || nbElts < 0) return NULL; //Valeurs entrées non valides
-	if (nbElts + 1 >  size) { //Test si dépassement de capacité
+	if (tab == NULL || *size < 0 || *nbElts < 0) {
+		return NULL;
+	}//Valeurs entrées non valides
+	if (*nbElts + 1 >  *size) { //Test si dépassement de capacité
 		int* tmp = tab; //Sauvegarde de l'ancien pointeur si
-		tab = (int*)realloc(tab, (*size + TAILLEAJOUT) * sizeof(int));  //Allocation de la mémoire
+		*tab = (int*)realloc(tab, (*size + TAILLEAJOUT) * sizeof(int));  //Allocation de la mémoire
 		if (tab == NULL) { //Vérification que la mémoire a bien été allouée
-			tab = tmp;
+			*tab = tmp;
 			return NULL;
 		}
 		*size += TAILLEAJOUT;
 	}
 	*(tab+*nbElts) = element;
-	nbElts += 1;
-	return 0;
+	*nbElts += 1;
+	return tab;
 }

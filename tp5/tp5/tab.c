@@ -43,5 +43,5 @@ int* ajoutElementDansTableau(int* tab, int* size, int* nbElts, int element) {
 	}
 	*(tab+*nbElts) = element;
 	*nbElts += 1;
-	return tab;
+	return *nbElts;
 }

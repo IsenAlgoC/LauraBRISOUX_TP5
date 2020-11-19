@@ -23,12 +23,13 @@ int main() {
 		myTab2[i] = i + 1;
 	}
 	afficheTab(myTab2, TAB2SIZE, nbElts);
-	//free(myTab2);
+	
 	printf("\n");
 
 	ajoutElementDansTableau(myTab2, &tabSize, &nbElts, 17);
 	afficheTab(myTab2, TAB2SIZE, nbElts);
 
+	free(myTab2);
 	return (EXIT_SUCCESS);
 
 }

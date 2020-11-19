@@ -1,7 +1,8 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<math.h>
-#define TAB2SIZE 100
+
+#define TAB2SIZE 100     
 #define TAILLEAJOUT 50
 
 

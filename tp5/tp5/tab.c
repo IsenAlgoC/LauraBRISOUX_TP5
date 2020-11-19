@@ -1,27 +1,27 @@
-#include "tab.h"
+#include "tab.h"		//fichier d'en-tête personnel
 
 
 
 
-int initTab(int* tab, int size) {
+int initTab(int* tab, int size) {				// fonction qui remplit un tableau d’entiers de taille size avec des zéros
 	int i = 0;
-	if ((tab == NULL) || (size < 0)) {
+	if ((tab == NULL) || (size < 0)) {			//erreur si tab est un pointeur NULL ou size < 0
 		return -1;
 	}
 	else {
-		for (i = 0; i < size; i++) {
-			*(tab + i) = 0;
+		for (i = 0; i < size; i++) {			
+			*(tab + i) = 0;						//chaque valeur est mise à zéro tour à tour
 		}
 	}
 	return size;
 }
 
-int afficheTab(int* tab, int size, int nbElts) {
-	if ((tab == NULL) || (size < 0) || (size < nbElts)) {
+int afficheTab(int* tab, int size, int nbElts) {			// fonction qui affiche les nbElts premièrs éléments du tableau tab
+	if ((tab == NULL) || (size < 0) || (size < nbElts)) {	//erreur si tab est un pointeur NULL ou size <0 ou size < nbElts
 		return -1;
 	}
 	else {
-		for (int i = 0; i < nbElts; i++) {
+		for (int i = 0; i < nbElts; i++) {					//affiche tour à tour les éléments du tableau
 			printf("%d ", tab[i]);
 		}
 	}
@@ -29,6 +29,9 @@ int afficheTab(int* tab, int size, int nbElts) {
 }
 
 int* ajoutElementDansTableau(int* tab, int* size, int* nbElts, int element) {
+	/*ajoute un nombre entier à la suite des valeurs déjà entrées et met à jour le nombre
+		d'éléments stockés ainsi que la capacité réelle du tableau. */
+
 	if (tab == NULL || *size < 0 || *nbElts < 0) {
 		return NULL;
 	}//Valeurs entrées non valides
@@ -39,7 +42,7 @@ int* ajoutElementDansTableau(int* tab, int* size, int* nbElts, int element) {
 			*tab = tmp;
 			return NULL;
 		}
-		*size += TAILLEAJOUT;
+		*size += TAILLEAJOUT;		//Si le tableau est trop petit, il doit être agrandi de TAILLEAJOUT éléments.
 	}
 	*(tab+*nbElts) = element;
 	*nbElts += 1;
